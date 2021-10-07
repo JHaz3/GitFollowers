@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		EB74B5A3270F8BED0005CC35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5A2270F8BED0005CC35 /* AppDelegate.swift */; };
 		EB74B5A5270F8BED0005CC35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5A4270F8BED0005CC35 /* SceneDelegate.swift */; };
-		EB74B5A7270F8BED0005CC35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5A6270F8BED0005CC35 /* ViewController.swift */; };
 		EB74B5AC270F8BEF0005CC35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB74B5AB270F8BEF0005CC35 /* Assets.xcassets */; };
 		EB74B5AF270F8BEF0005CC35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB74B5AD270F8BEF0005CC35 /* LaunchScreen.storyboard */; };
+		EB74B5BC270F94760005CC35 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5BB270F94760005CC35 /* SearchViewController.swift */; };
+		EB74B5BE270F94F80005CC35 /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5BD270F94F80005CC35 /* FavoriteListViewController.swift */; };
+		EB74B5C1270F9B970005CC35 /* GHFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5C0270F9B970005CC35 /* GHFButton.swift */; };
+		EB74B5C3270F9E3A0005CC35 /* GHFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5C2270F9E3A0005CC35 /* GHFTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EB74B59F270F8BED0005CC35 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB74B5A2270F8BED0005CC35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB74B5A4270F8BED0005CC35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EB74B5A6270F8BED0005CC35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EB74B5AB270F8BEF0005CC35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB74B5AE270F8BEF0005CC35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB74B5B0270F8BEF0005CC35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB74B5BB270F94760005CC35 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		EB74B5BD270F94F80005CC35 /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
+		EB74B5C0270F9B970005CC35 /* GHFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFButton.swift; sourceTree = "<group>"; };
+		EB74B5C2270F9E3A0005CC35 /* GHFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,57 @@
 		EB74B5A1270F8BED0005CC35 /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
-				EB74B5A2270F8BED0005CC35 /* AppDelegate.swift */,
-				EB74B5A4270F8BED0005CC35 /* SceneDelegate.swift */,
-				EB74B5A6270F8BED0005CC35 /* ViewController.swift */,
+				EB74B5B6270F93F50005CC35 /* Model */,
+				EB74B5B7270F93FC0005CC35 /* Controllers */,
+				EB74B5B8270F94080005CC35 /* UI */,
+				EB74B5B9270F94240005CC35 /* Supporting Files */,
 				EB74B5AB270F8BEF0005CC35 /* Assets.xcassets */,
 				EB74B5AD270F8BEF0005CC35 /* LaunchScreen.storyboard */,
-				EB74B5B0270F8BEF0005CC35 /* Info.plist */,
 			);
 			path = GitHubFollowers;
+			sourceTree = "<group>";
+		};
+		EB74B5B6270F93F50005CC35 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EB74B5B7270F93FC0005CC35 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EB74B5B8270F94080005CC35 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EB74B5BB270F94760005CC35 /* SearchViewController.swift */,
+				EB74B5BD270F94F80005CC35 /* FavoriteListViewController.swift */,
+				EB74B5BF270F9B6C0005CC35 /* Custom UI */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		EB74B5B9270F94240005CC35 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EB74B5A2270F8BED0005CC35 /* AppDelegate.swift */,
+				EB74B5A4270F8BED0005CC35 /* SceneDelegate.swift */,
+				EB74B5B0270F8BEF0005CC35 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EB74B5BF270F9B6C0005CC35 /* Custom UI */ = {
+			isa = PBXGroup;
+			children = (
+				EB74B5C0270F9B970005CC35 /* GHFButton.swift */,
+				EB74B5C2270F9E3A0005CC35 /* GHFTextField.swift */,
+			);
+			path = "Custom UI";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,9 +183,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB74B5A7270F8BED0005CC35 /* ViewController.swift in Sources */,
+				EB74B5BE270F94F80005CC35 /* FavoriteListViewController.swift in Sources */,
 				EB74B5A3270F8BED0005CC35 /* AppDelegate.swift in Sources */,
+				EB74B5BC270F94760005CC35 /* SearchViewController.swift in Sources */,
+				EB74B5C1270F9B970005CC35 /* GHFButton.swift in Sources */,
 				EB74B5A5270F8BED0005CC35 /* SceneDelegate.swift in Sources */,
+				EB74B5C3270F9E3A0005CC35 /* GHFTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +331,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7C8HG37K7Q;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GitHubFollowers/Info.plist;
+				INFOPLIST_FILE = "GitHubFollowers/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -293,7 +345,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -306,7 +358,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7C8HG37K7Q;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GitHubFollowers/Info.plist;
+				INFOPLIST_FILE = "GitHubFollowers/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -320,7 +372,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
