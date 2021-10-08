@@ -20,6 +20,10 @@
 		EB74B5C9270FB66C0005CC35 /* GHFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5C8270FB66C0005CC35 /* GHFBodyLabel.swift */; };
 		EB74B5CB270FB77D0005CC35 /* GHFAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5CA270FB77D0005CC35 /* GHFAlertViewController.swift */; };
 		EB74B5CE270FBD000005CC35 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5CD270FBD000005CC35 /* UIViewController+Ext.swift */; };
+		EB74B5D0270FC0C60005CC35 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5CF270FC0C50005CC35 /* Follower.swift */; };
+		EB74B5D2270FC1FB0005CC35 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5D1270FC1FB0005CC35 /* User.swift */; };
+		EB74B5D4270FC76E0005CC35 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5D3270FC76E0005CC35 /* NetworkController.swift */; };
+		EB74B5D6270FC83F0005CC35 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5D5270FC83F0005CC35 /* NetworkError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		EB74B5C8270FB66C0005CC35 /* GHFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFBodyLabel.swift; sourceTree = "<group>"; };
 		EB74B5CA270FB77D0005CC35 /* GHFAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFAlertViewController.swift; sourceTree = "<group>"; };
 		EB74B5CD270FBD000005CC35 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		EB74B5CF270FC0C50005CC35 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
+		EB74B5D1270FC1FB0005CC35 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EB74B5D3270FC76E0005CC35 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		EB74B5D5270FC83F0005CC35 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,8 @@
 		EB74B5B6270F93F50005CC35 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EB74B5CF270FC0C50005CC35 /* Follower.swift */,
+				EB74B5D1270FC1FB0005CC35 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -91,6 +101,7 @@
 		EB74B5B7270F93FC0005CC35 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EB74B5D3270FC76E0005CC35 /* NetworkController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -99,8 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				EB74B5BB270F94760005CC35 /* SearchViewController.swift */,
-				EB74B5BD270F94F80005CC35 /* FavoriteListViewController.swift */,
 				EB74B5C4270FAEB20005CC35 /* FollowerListViewController.swift */,
+				EB74B5BD270F94F80005CC35 /* FavoriteListViewController.swift */,
 				EB74B5BF270F9B6C0005CC35 /* Custom UI */,
 			);
 			path = UI;
@@ -132,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				EB74B5CD270FBD000005CC35 /* UIViewController+Ext.swift */,
+				EB74B5D5270FC83F0005CC35 /* NetworkError.swift */,
 			);
 			path = "Helpers + Extensions";
 			sourceTree = "<group>";
@@ -206,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB74B5D2270FC1FB0005CC35 /* User.swift in Sources */,
 				EB74B5BE270F94F80005CC35 /* FavoriteListViewController.swift in Sources */,
 				EB74B5A3270F8BED0005CC35 /* AppDelegate.swift in Sources */,
 				EB74B5BC270F94760005CC35 /* SearchViewController.swift in Sources */,
@@ -213,9 +226,12 @@
 				EB74B5C5270FAEB20005CC35 /* FollowerListViewController.swift in Sources */,
 				EB74B5C1270F9B970005CC35 /* GHFButton.swift in Sources */,
 				EB74B5C7270FB5920005CC35 /* GHFTitleLabel.swift in Sources */,
+				EB74B5D0270FC0C60005CC35 /* Follower.swift in Sources */,
+				EB74B5D6270FC83F0005CC35 /* NetworkError.swift in Sources */,
 				EB74B5C9270FB66C0005CC35 /* GHFBodyLabel.swift in Sources */,
 				EB74B5CB270FB77D0005CC35 /* GHFAlertViewController.swift in Sources */,
 				EB74B5A5270F8BED0005CC35 /* SceneDelegate.swift in Sources */,
+				EB74B5D4270FC76E0005CC35 /* NetworkController.swift in Sources */,
 				EB74B5C3270F9E3A0005CC35 /* GHFTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
