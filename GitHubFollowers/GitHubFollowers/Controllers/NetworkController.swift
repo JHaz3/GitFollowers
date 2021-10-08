@@ -5,7 +5,7 @@
 //  Created by Jake Haslam on 10/7/21.
 //
 
-import Foundation
+import UIKit
 
 class NetworkController {
     
@@ -13,6 +13,7 @@ class NetworkController {
     fileprivate let baseUrl = "https://api.github.com/users/"
     
     static let shared = NetworkController()
+    let cache = NSCache<NSString, UIImage>()
     
     private init() {}
     
@@ -23,10 +24,10 @@ class NetworkController {
         
         guard let finalUrl = URL(string: baseUrl) else { return completion(.failure(.invalidURL)) }
         
-        let task = URLSession.shared.dataTask(with: finalUrl) { data, _, error in
+        URLSession.shared.dataTask(with: finalUrl) { data, _, error in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
-                return completion(.failure(.noData))
+                return completion(.failure(.thrown(error)))
             }
             
             guard let data = data else { return completion(.failure(.noData)) }
@@ -38,9 +39,9 @@ class NetworkController {
                 completion(.success(followers))
             } catch {
                 print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
-                return completion(.failure(.noData))
+                return completion(.failure(.thrown(error)))
             }
-        }
-        task.resume()
+        } .resume()
+        
     }
 }// End of Class

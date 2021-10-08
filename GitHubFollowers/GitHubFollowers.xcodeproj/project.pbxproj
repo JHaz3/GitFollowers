@@ -24,6 +24,9 @@
 		EB74B5D2270FC1FB0005CC35 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5D1270FC1FB0005CC35 /* User.swift */; };
 		EB74B5D4270FC76E0005CC35 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5D3270FC76E0005CC35 /* NetworkController.swift */; };
 		EB74B5D6270FC83F0005CC35 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5D5270FC83F0005CC35 /* NetworkError.swift */; };
+		EB74B5D92710BD730005CC35 /* FollowerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5D82710BD730005CC35 /* FollowerCollectionViewCell.swift */; };
+		EB74B5DB2710BDF80005CC35 /* GHFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5DA2710BDF80005CC35 /* GHFAvatarImageView.swift */; };
+		EB74B5DD2710D9FC0005CC35 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5DC2710D9FC0005CC35 /* UIHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		EB74B5D1270FC1FB0005CC35 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EB74B5D3270FC76E0005CC35 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		EB74B5D5270FC83F0005CC35 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		EB74B5D82710BD730005CC35 /* FollowerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCollectionViewCell.swift; sourceTree = "<group>"; };
+		EB74B5DA2710BDF80005CC35 /* GHFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFAvatarImageView.swift; sourceTree = "<group>"; };
+		EB74B5DC2710D9FC0005CC35 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +136,9 @@
 		EB74B5BF270F9B6C0005CC35 /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
+				EB74B5D72710BD4F0005CC35 /* Cells */,
 				EB74B5C0270F9B970005CC35 /* GHFButton.swift */,
+				EB74B5DA2710BDF80005CC35 /* GHFAvatarImageView.swift */,
 				EB74B5C2270F9E3A0005CC35 /* GHFTextField.swift */,
 				EB74B5C6270FB5920005CC35 /* GHFTitleLabel.swift */,
 				EB74B5C8270FB66C0005CC35 /* GHFBodyLabel.swift */,
@@ -144,8 +152,17 @@
 			children = (
 				EB74B5CD270FBD000005CC35 /* UIViewController+Ext.swift */,
 				EB74B5D5270FC83F0005CC35 /* NetworkError.swift */,
+				EB74B5DC2710D9FC0005CC35 /* UIHelper.swift */,
 			);
 			path = "Helpers + Extensions";
+			sourceTree = "<group>";
+		};
+		EB74B5D72710BD4F0005CC35 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EB74B5D82710BD730005CC35 /* FollowerCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,12 +240,15 @@
 				EB74B5A3270F8BED0005CC35 /* AppDelegate.swift in Sources */,
 				EB74B5BC270F94760005CC35 /* SearchViewController.swift in Sources */,
 				EB74B5CE270FBD000005CC35 /* UIViewController+Ext.swift in Sources */,
+				EB74B5DD2710D9FC0005CC35 /* UIHelper.swift in Sources */,
 				EB74B5C5270FAEB20005CC35 /* FollowerListViewController.swift in Sources */,
 				EB74B5C1270F9B970005CC35 /* GHFButton.swift in Sources */,
 				EB74B5C7270FB5920005CC35 /* GHFTitleLabel.swift in Sources */,
+				EB74B5D92710BD730005CC35 /* FollowerCollectionViewCell.swift in Sources */,
 				EB74B5D0270FC0C60005CC35 /* Follower.swift in Sources */,
 				EB74B5D6270FC83F0005CC35 /* NetworkError.swift in Sources */,
 				EB74B5C9270FB66C0005CC35 /* GHFBodyLabel.swift in Sources */,
+				EB74B5DB2710BDF80005CC35 /* GHFAvatarImageView.swift in Sources */,
 				EB74B5CB270FB77D0005CC35 /* GHFAlertViewController.swift in Sources */,
 				EB74B5A5270F8BED0005CC35 /* SceneDelegate.swift in Sources */,
 				EB74B5D4270FC76E0005CC35 /* NetworkController.swift in Sources */,
