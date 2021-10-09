@@ -44,4 +44,32 @@ class NetworkController {
         } .resume()
         
     }
+    
+    func getUserInfo(for username: String, completion: @escaping (Result<User, NetworkError>) -> Void) {
+        
+        let baseUrl = baseUrl + "\(username)"
+        
+        guard let finalUrl = URL(string: baseUrl) else { return completion(.failure(.invalidURL)) }
+        
+        URLSession.shared.dataTask(with: finalUrl) { data, _, error in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
+                return completion(.failure(.thrown(error)))
+            }
+            
+            guard let data = data else { return completion(.failure(.noData)) }
+            
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let user = try decoder.decode(User.self, from: data)
+                completion(.success(user))
+            } catch {
+                print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
+                return completion(.failure(.thrown(error)))
+            }
+        } .resume()
+        
+    }
+    
 }// End of Class
