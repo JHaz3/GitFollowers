@@ -11,11 +11,11 @@ class SearchViewController: UIViewController {
     
     // MARK: - Properties
     let logoImageView = UIImageView()
-    let userNameTextField = GHFTextField()
+    let usernameTextField = GHFTextField()
     let callToActionButton = GHFButton(backgroundColor: .systemGreen, title: "Get Followers")
     
     var isUsernameEntered: Bool {
-        return !userNameTextField.text!.isEmpty
+        return !usernameTextField.text!.isEmpty
     }
     
     
@@ -37,9 +37,9 @@ class SearchViewController: UIViewController {
             return
         }
         
-        let followerListVC = FollowerListViewController()
-        followerListVC.username = userNameTextField.text
-        followerListVC.title = userNameTextField.text
+        let followerListVC = FollowerListVC(username: usernameTextField.text!)
+        followerListVC.username = usernameTextField.text
+        followerListVC.title = usernameTextField.text
         navigationController?.pushViewController(followerListVC, animated: true)
     }
     
@@ -69,14 +69,14 @@ class SearchViewController: UIViewController {
     }
     
     func configureTextField() {
-        view.addSubview(userNameTextField)
-        userNameTextField.delegate = self
+        view.addSubview(usernameTextField)
+        usernameTextField.delegate = self
         
         NSLayoutConstraint.activate([
-            userNameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
-            userNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            userNameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            userNameTextField.heightAnchor.constraint(equalToConstant: 50)
+            usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
+            usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            usernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            usernameTextField.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
@@ -99,7 +99,6 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         pushFollowerListVC()
-        
         return true
     }
 }

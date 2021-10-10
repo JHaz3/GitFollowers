@@ -16,7 +16,7 @@ class GHFUserInfoHeaderVC: UIViewController {
     let locationLabel = GHFSecondaryTitleLabel(fontSize: 18)
     let bioLabel = GHFBodyLabel(textAlignment: .left)
     
-    var user: User?
+    var user: User!
     
     init(user: User) {
         super.init(nibName: nil, bundle: nil)
@@ -35,7 +35,7 @@ class GHFUserInfoHeaderVC: UIViewController {
     }
     
     func configureUIElements() {
-        guard let user = user else { return }
+
         avatarImageView.fetchAvatarImage(from: user.avatarUrl)
         usernameLabel.text = user.login
         nameLabel.text = user.name ?? ""
@@ -74,12 +74,12 @@ class GHFUserInfoHeaderVC: UIViewController {
             usernameLabel.heightAnchor.constraint(equalToConstant: 38),
             
             nameLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor, constant: 8),
-            nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor),
+            nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: textImagePadding),
             nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             nameLabel.heightAnchor.constraint(equalToConstant: 20),
             
             locationImageView.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor),
-            locationImageView.trailingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: textImagePadding),
+            locationImageView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: textImagePadding),
             locationImageView.widthAnchor.constraint(equalToConstant: 20),
             locationImageView.heightAnchor.constraint(equalToConstant: 20),
             
