@@ -37,10 +37,11 @@
 		EB74B5F327122D1D0005CC35 /* GHFRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5F227122D1C0005CC35 /* GHFRepoItemVC.swift */; };
 		EB74B5F527122E990005CC35 /* GHFFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5F427122E990005CC35 /* GHFFollowerItemVC.swift */; };
 		EB74B5F82712310D0005CC35 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5F72712310D0005CC35 /* Date+Ext.swift */; };
-		EB74B5FA2712312A0005CC35 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5F92712312A0005CC35 /* String+Ext.swift */; };
 		EB74B5FC27123F140005CC35 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74B5FB27123F140005CC35 /* PersistenceController.swift */; };
 		EB876151271257A20048CBE6 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB876150271257A20048CBE6 /* FavoritesCell.swift */; };
 		EB876154271263340048CBE6 /* GHFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB876153271263340048CBE6 /* GHFTabBarController.swift */; };
+		EB8761562714D07E0048CBE6 /* GHFAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8761552714D07E0048CBE6 /* GHFAlertContainerView.swift */; };
+		EB8761582714D7680048CBE6 /* GHFDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8761572714D7680048CBE6 /* GHFDataLoadingVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,10 +77,11 @@
 		EB74B5F227122D1C0005CC35 /* GHFRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFRepoItemVC.swift; sourceTree = "<group>"; };
 		EB74B5F427122E990005CC35 /* GHFFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFFollowerItemVC.swift; sourceTree = "<group>"; };
 		EB74B5F72712310D0005CC35 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
-		EB74B5F92712312A0005CC35 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		EB74B5FB27123F140005CC35 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		EB876150271257A20048CBE6 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		EB876153271263340048CBE6 /* GHFTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFTabBarController.swift; sourceTree = "<group>"; };
+		EB8761552714D07E0048CBE6 /* GHFAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFAlertContainerView.swift; sourceTree = "<group>"; };
+		EB8761572714D7680048CBE6 /* GHFDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFDataLoadingVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +116,7 @@
 			children = (
 				EB74B5B6270F93F50005CC35 /* Model */,
 				EB74B5B7270F93FC0005CC35 /* Controllers */,
-				EB74B5B8270F94080005CC35 /* UI */,
+				EB74B5B8270F94080005CC35 /* Custom Views */,
 				EB74B5CC270FBCDD0005CC35 /* Helpers + Extensions */,
 				EB74B5B9270F94240005CC35 /* Supporting Files */,
 				EB74B5AB270F8BEF0005CC35 /* Assets.xcassets */,
@@ -141,13 +143,22 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		EB74B5B8270F94080005CC35 /* UI */ = {
+		EB74B5B8270F94080005CC35 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
 				EB74B5E12710F2950005CC35 /* ViewControllers */,
-				EB74B5BF270F9B6C0005CC35 /* Custom UI */,
+				EB74B5F627122EFE0005CC35 /* ItemInfoVCs */,
+				EB74B5E8271212190005CC35 /* GHFUserInfoHeaderVC.swift */,
+				EB74B5CA270FB77D0005CC35 /* GHFAlertVC.swift */,
+				EB876152271263070048CBE6 /* TabBarControllers */,
+				EB74B5E32710F2C10005CC35 /* Labels */,
+				EB74B5E22710F2B30005CC35 /* ImageViews */,
+				EB74B5E02710F2630005CC35 /* TexitFields */,
+				EB74B5DF2710F24A0005CC35 /* Buttons */,
+				EB74B5DE2710F2440005CC35 /* Views */,
+				EB74B5D72710BD4F0005CC35 /* Cells */,
 			);
-			path = UI;
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		EB74B5B9270F94240005CC35 /* Supporting Files */ = {
@@ -160,20 +171,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EB74B5BF270F9B6C0005CC35 /* Custom UI */ = {
-			isa = PBXGroup;
-			children = (
-				EB876152271263070048CBE6 /* TabBarControllers */,
-				EB74B5E32710F2C10005CC35 /* Labels */,
-				EB74B5E22710F2B30005CC35 /* ImageViews */,
-				EB74B5E02710F2630005CC35 /* TexitFields */,
-				EB74B5DF2710F24A0005CC35 /* Buttons */,
-				EB74B5DE2710F2440005CC35 /* Views */,
-				EB74B5D72710BD4F0005CC35 /* Cells */,
-			);
-			path = "Custom UI";
-			sourceTree = "<group>";
-		};
 		EB74B5CC270FBCDD0005CC35 /* Helpers + Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,7 +179,6 @@
 				EB74B5DC2710D9FC0005CC35 /* UIHelper.swift */,
 				EB74B5EC2712197F0005CC35 /* Constants.swift */,
 				EB74B5F72712310D0005CC35 /* Date+Ext.swift */,
-				EB74B5F92712312A0005CC35 /* String+Ext.swift */,
 			);
 			path = "Helpers + Extensions";
 			sourceTree = "<group>";
@@ -201,6 +197,7 @@
 			children = (
 				EB74B5E42710F3650005CC35 /* GHFEmptyStateView.swift */,
 				EB74B5EE271227CD0005CC35 /* GHFItemInfoView.swift */,
+				EB8761552714D07E0048CBE6 /* GHFAlertContainerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -224,13 +221,11 @@
 		EB74B5E12710F2950005CC35 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EB74B5F627122EFE0005CC35 /* ItemInfoVCs */,
+				EB8761572714D7680048CBE6 /* GHFDataLoadingVC.swift */,
 				EB74B5BB270F94760005CC35 /* SearchVC.swift */,
 				EB74B5C4270FAEB20005CC35 /* FollowerListVC.swift */,
 				EB74B5BD270F94F80005CC35 /* FavoriteListVC.swift */,
-				EB74B5CA270FB77D0005CC35 /* GHFAlertVC.swift */,
 				EB74B5E627120A440005CC35 /* UserInfoVC.swift */,
-				EB74B5E8271212190005CC35 /* GHFUserInfoHeaderVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -345,9 +340,10 @@
 				EB74B5BE270F94F80005CC35 /* FavoriteListVC.swift in Sources */,
 				EB876151271257A20048CBE6 /* FavoritesCell.swift in Sources */,
 				EB74B5A3270F8BED0005CC35 /* AppDelegate.swift in Sources */,
-				EB74B5FA2712312A0005CC35 /* String+Ext.swift in Sources */,
+				EB8761562714D07E0048CBE6 /* GHFAlertContainerView.swift in Sources */,
 				EB74B5F327122D1D0005CC35 /* GHFRepoItemVC.swift in Sources */,
 				EB74B5BC270F94760005CC35 /* SearchVC.swift in Sources */,
+				EB8761582714D7680048CBE6 /* GHFDataLoadingVC.swift in Sources */,
 				EB74B5CE270FBD000005CC35 /* UIViewController+Ext.swift in Sources */,
 				EB74B5DD2710D9FC0005CC35 /* UIHelper.swift in Sources */,
 				EB74B5ED2712197F0005CC35 /* Constants.swift in Sources */,

@@ -1,13 +1,13 @@
 //
-//  GHFSecondaryTitleLabel.swift
+//  GHFTitleLabel.swift
 //  GitHubFollowers
 //
-//  Created by Jake Haslam on 10/9/21.
+//  Created by Jake Haslam on 10/7/21.
 //
 
 import UIKit
 
-class GHFSecondaryTitleLabel: UILabel {
+class GHFTitleLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,19 +18,18 @@ class GHFSecondaryTitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(fontSize: CGFloat) {
-        super.init(frame: .zero)
-        font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
-        configure()
-        
+    convenience init(textAlignment: NSTextAlignment, fontSize: CGFloat) {
+        self.init(frame: .zero)
+        self.textAlignment = textAlignment
+        self.font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
     }
     
     private func configure() {
-        textColor = .secondaryLabel
-        font = UIFont.preferredFont(forTextStyle: .body)
+        textColor = .label
         adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.90
+        minimumScaleFactor = 0.9
         lineBreakMode = .byTruncatingTail
         translatesAutoresizingMaskIntoConstraints = false
     }
+
 }
