@@ -13,6 +13,9 @@ case invalidURL
 case noData
 case badData
 case unableToDelete
+case unableToFavorite
+case alreadyInFavorites
+    
     var errorDescription: String? {
         switch self {
         case .thrown(let error):
@@ -25,6 +28,10 @@ case unableToDelete
             return "Server responded with bad data."
         case .unableToDelete:
             return "Mission Failed"
+        case .unableToFavorite:
+            return "There was an error favoriting this user, please try again"
+        case .alreadyInFavorites:
+            return "You've already favorited this user. You must be their biggest fan!"
         }
     }
 }
