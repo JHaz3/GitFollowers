@@ -42,6 +42,7 @@
 		EB876154271263340048CBE6 /* GHFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB876153271263340048CBE6 /* GHFTabBarController.swift */; };
 		EB8761562714D07E0048CBE6 /* GHFAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8761552714D07E0048CBE6 /* GHFAlertContainerView.swift */; };
 		EB8761582714D7680048CBE6 /* GHFDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8761572714D7680048CBE6 /* GHFDataLoadingVC.swift */; };
+		EB87615E2714F2610048CBE6 /* UIView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87615D2714F2610048CBE6 /* UIView + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		EB876153271263340048CBE6 /* GHFTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFTabBarController.swift; sourceTree = "<group>"; };
 		EB8761552714D07E0048CBE6 /* GHFAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFAlertContainerView.swift; sourceTree = "<group>"; };
 		EB8761572714D7680048CBE6 /* GHFDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFDataLoadingVC.swift; sourceTree = "<group>"; };
+		EB87615D2714F2610048CBE6 /* UIView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,11 +176,12 @@
 		EB74B5CC270FBCDD0005CC35 /* Helpers + Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EB74B5CD270FBD000005CC35 /* UIViewController+Ext.swift */,
-				EB74B5D5270FC83F0005CC35 /* NetworkError.swift */,
 				EB74B5DC2710D9FC0005CC35 /* UIHelper.swift */,
+				EB74B5D5270FC83F0005CC35 /* NetworkError.swift */,
 				EB74B5EC2712197F0005CC35 /* Constants.swift */,
+				EB74B5CD270FBD000005CC35 /* UIViewController+Ext.swift */,
 				EB74B5F72712310D0005CC35 /* Date+Ext.swift */,
+				EB87615D2714F2610048CBE6 /* UIView + Ext.swift */,
 			);
 			path = "Helpers + Extensions";
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				EB74B5E52710F3650005CC35 /* GHFEmptyStateView.swift in Sources */,
 				EB74B5D6270FC83F0005CC35 /* NetworkError.swift in Sources */,
 				EB74B5F527122E990005CC35 /* GHFFollowerItemVC.swift in Sources */,
+				EB87615E2714F2610048CBE6 /* UIView + Ext.swift in Sources */,
 				EB74B5C9270FB66C0005CC35 /* GHFBodyLabel.swift in Sources */,
 				EB74B5DB2710BDF80005CC35 /* GHFAvatarImageView.swift in Sources */,
 				EB74B5CB270FB77D0005CC35 /* GHFAlertVC.swift in Sources */,

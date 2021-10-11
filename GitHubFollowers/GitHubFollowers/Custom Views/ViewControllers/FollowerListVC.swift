@@ -22,6 +22,7 @@ class FollowerListVC: GHFDataLoadingVC {
     var page = 1
     var hasMoreFollowers = true
     var isSearching = false
+    var isLoadingMoreFollowers = false
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
@@ -61,27 +62,36 @@ class FollowerListVC: GHFDataLoadingVC {
     
     func getFollowers(username: String, page: Int) {
         showLoadingView()
-        NetworkController.shared.getFollowers(for: username, page: page) { [weak self] result in
-            guard let self = self else { return }
-            self.dismissLoadingView()
-            
-            switch result {
-            case .success(let followers):
-                if followers.count < 100 { self.hasMoreFollowers = false }
-                self.followers.append(contentsOf: followers)
-                
-                if self.followers.isEmpty {
-                    let message = "This user doesn't have any followers. Go follow them 😃"
-                    DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
-                    return
+        isLoadingMoreFollowers = true
+        
+        Task {
+            do {
+                let followers = try await NetworkController.shared.getFollowers(for: username, page: page)
+                updateUI(with: followers)
+                dismissLoadingView()
+            } catch {
+                if let error = error as? NetworkError {
+                    presentGFAlert(title: "Bad Stuff Happened", message: error.localizedDescription, buttonTitle: "Ok")
+                } else {
+                    presentDefaultError()
                 }
-                
-                self.updateData(on: self.followers)
-                
-            case .failure(let error):
-                self.presentGHFAlertOnMainThread(title: "Mission Failed...", message: error.localizedDescription, buttonTitle: "Ok")
+
+                dismissLoadingView()
             }
         }
+    }
+    
+    func updateUI(with followers: [Follower]) {
+        if followers.count < 100 { self.hasMoreFollowers = false }
+        self.followers.append(contentsOf: followers)
+        
+        if self.followers.isEmpty {
+            let message = "This user doesn't have any followers. Go follow them 😀."
+            DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
+            return
+        }
+        
+        self.updateData(on: self.followers)
     }
     
     func configureSearchController() {
@@ -120,26 +130,40 @@ class FollowerListVC: GHFDataLoadingVC {
     }
     
     @objc func addButtonTapped() {
-        NetworkController.shared.getUserInfo(for: username) { [weak self ] result in
-            guard let self = self else { return }
-            self.dismissLoadingView()
-            
-            switch result {
-            case .success(let user):
-                let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
-                
-                PersistanceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
-                    guard let self = self else { return }
-                    
-                    guard let error = error else {
-                        self.presentGHFAlertOnMainThread(title: "Success", message: "You have successfully favorited this user! 🎉", buttonTitle: "Hooray!")
-                        return
-                    }
-                    
-                    self.presentGHFAlertOnMainThread(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "😔")
+        showLoadingView()
+        
+        Task {
+            do {
+                let user = try await NetworkController.shared.getUserInfo(for: username)
+                addUserToFavorites(user: user)
+                dismissLoadingView()
+            } catch {
+                if let error = error as? NetworkError {
+                    presentGFAlert(title: "Something Went Wrong", message: error.localizedDescription, buttonTitle: "Ok")
+                } else {
+                    presentDefaultError()
                 }
-            case .failure(let error):
-                self.presentGHFAlertOnMainThread(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")
+                
+                dismissLoadingView()
+            }
+        }
+    }
+    func addUserToFavorites(user: User) {
+        let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+        
+        PersistanceController.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+            guard let self = self else { return }
+            
+            guard let error = error else {
+                DispatchQueue.main.async {
+                    self.presentGFAlert(title: "Success!", message: "You have successfully favorited this user 🎉", buttonTitle: "Hooray!")
+                }
+                
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.presentGFAlert(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")
             }
         }
     }

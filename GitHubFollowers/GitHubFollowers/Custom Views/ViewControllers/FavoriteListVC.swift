@@ -41,7 +41,7 @@ class FavoriteListViewController: GHFDataLoadingVC {
     }
     
     func getFavorites() {
-        PersistanceManager.retrieveFavorites { [weak self] result in
+        PersistanceController.retrieveFavorites { [weak self] result in
             guard let self = self else { return }
             
             switch result {
@@ -57,7 +57,7 @@ class FavoriteListViewController: GHFDataLoadingVC {
                 }
                 
             case .failure(let error):
-                self.presentGHFAlertOnMainThread(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")
+                self.presentGFAlert(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")
             }
         }
     }
@@ -91,10 +91,10 @@ extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate
         favorites.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .left)
         
-        PersistanceManager.updateWith(favorite: favorite, actionType: .remove) { [weak self] error in
+        PersistanceController.updateWith(favorite: favorite, actionType: .remove) { [weak self] error in
             guard let self = self else { return }
             guard let error = error else { return }
-            self.presentGHFAlertOnMainThread(title: "Unable to remove.", message: error.localizedDescription, buttonTitle: "Ok")
+            self.presentGFAlert(title: "Unable to remove.", message: error.localizedDescription, buttonTitle: "Ok")
         }
     }
 }
