@@ -12,7 +12,7 @@ class SearchViewController: UIViewController {
     // MARK: - Properties
     let logoImageView = UIImageView()
     let usernameTextField = GHFTextField()
-    let callToActionButton = GHFButton(backgroundColor: .systemGreen, title: "Get Followers")
+    let callToActionButton = GHFButton(color: .systemGreen, title: "Get Followers", systemImageName: "person.3")
     var logoImageViewTopConstraint: NSLayoutConstraint!
     
     var isUsernameEntered: Bool {

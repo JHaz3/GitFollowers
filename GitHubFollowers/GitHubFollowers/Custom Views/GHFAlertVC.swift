@@ -12,7 +12,7 @@ class GHFAlertViewController: UIViewController {
     let containerView = GHFAlertContainerView()
     let titleLabel = GHFTitleLabel(textAlignment: .center, fontSize: 20)
     let messageLabel = GHFBodyLabel(textAlignment: .center)
-    let actionButton = GHFButton(backgroundColor: .systemPink, title: "Ok")
+    let actionButton = GHFButton(color: .systemPink, title: "Ok", systemImageName: "checkmark.circle")
     
     var alertTitle: String?
     var message: String?
@@ -38,6 +38,7 @@ class GHFAlertViewController: UIViewController {
     
     func configureViews() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        view.addSubviews(containerView, titleLabel, messageLabel, actionButton)
         configureContainerView()
         configureTitleLabel()
         configureActionButton()
@@ -45,8 +46,6 @@ class GHFAlertViewController: UIViewController {
     }
     
     func configureContainerView() {
-        view.addSubview(containerView)
-        
         NSLayoutConstraint.activate([
             containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -56,7 +55,6 @@ class GHFAlertViewController: UIViewController {
     }
     
     func configureTitleLabel() {
-        containerView.addSubview(titleLabel)
         titleLabel.text = alertTitle ?? "Something went wrong"
         
         NSLayoutConstraint.activate([
@@ -68,7 +66,6 @@ class GHFAlertViewController: UIViewController {
     }
     
     func configureActionButton() {
-        containerView.addSubview(actionButton)
         actionButton.setTitle(buttonTitle ?? "okay", for: .normal)
         actionButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         
@@ -82,7 +79,6 @@ class GHFAlertViewController: UIViewController {
     }
     
     func configureMessageLabel() {
-        containerView.addSubview(messageLabel)
         messageLabel.text = message ?? "Unable to complete request"
         messageLabel.numberOfLines = 4
         
@@ -90,7 +86,7 @@ class GHFAlertViewController: UIViewController {
             messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
             messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
-            messageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -8)
+            messageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -12)
         ])
     }
     
