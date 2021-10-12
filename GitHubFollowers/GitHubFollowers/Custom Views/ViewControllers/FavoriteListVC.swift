@@ -9,6 +9,7 @@ import UIKit
 
 class FavoriteListViewController: GHFDataLoadingVC {
     
+    // MARK: - Properties
     let tableView = UITableView()
     var favorites: [Follower] = []
     
@@ -41,7 +42,7 @@ class FavoriteListViewController: GHFDataLoadingVC {
     }
     
     func getFavorites() {
-        PersistanceManager.retrieveFavorites { [weak self] result in
+        PersistanceController.retrieveFavorites { [weak self] result in
             guard let self = self else { return }
             
             switch result {
@@ -57,11 +58,11 @@ class FavoriteListViewController: GHFDataLoadingVC {
                 }
                 
             case .failure(let error):
-                self.presentGHFAlertOnMainThread(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")
+                self.presentGFAlert(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")
             }
         }
     }
-}
+}// End of Class
 
 
 extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -87,14 +88,16 @@ extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
         
-        let favorite = favorites[indexPath.row]
-        favorites.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .left)
-        
-        PersistanceManager.updateWith(favorite: favorite, actionType: .remove) { [weak self] error in
+        PersistanceController.updateWith(favorite: favorites[indexPath.row], actionType: .remove) { [weak self] error in
             guard let self = self else { return }
-            guard let error = error else { return }
-            self.presentGHFAlertOnMainThread(title: "Unable to remove.", message: error.localizedDescription, buttonTitle: "Ok")
+            guard let error = error else {
+                self.favorites.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .left)
+                return
+            }
+            DispatchQueue.main.async {
+                self.presentGFAlert(title: "Unable to remove.", message: error.localizedDescription, buttonTitle: "Ok")
+            }
         }
     }
 }

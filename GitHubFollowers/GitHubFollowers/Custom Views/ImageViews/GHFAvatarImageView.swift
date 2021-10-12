@@ -28,4 +28,8 @@ class GHFAvatarImageView: UIImageView {
         translatesAutoresizingMaskIntoConstraints = false
     }
     
+    func getImage(fromURL url: String) {
+        Task { image = await NetworkController.shared.fetchAvatarImage(from: url) ?? avatarPlaceHolderImage }
+    }
+    
 }// End of Class

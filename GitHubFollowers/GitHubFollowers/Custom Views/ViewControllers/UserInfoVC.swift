@@ -14,6 +14,7 @@ protocol UserInfoVCDelegate: AnyObject {
 
 class UserInfoVC: GHFDataLoadingVC {
     
+    // MARK: - Properties
     let headerView = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
@@ -37,17 +38,20 @@ class UserInfoVC: GHFDataLoadingVC {
     }
     
     func getUserInfo() {
-        NetworkController.shared.getUserInfo(for: username) { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let user):
-                DispatchQueue.main.async { self.configureUIElements(with: user) }
-            case .failure(let error):
-                self.presentGHFAlertOnMainThread(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")
+        Task {
+            do {
+                let user = try await NetworkController.shared.getUserInfo(for: username)
+                configureUIElements(with: user)
+            } catch {
+                if let error = error as? NetworkError {
+                    presentGFAlert(title: "Something Went Wrong", message: error.localizedDescription, buttonTitle: "Ok")
+                } else {
+                    presentDefaultError()
+                }
             }
         }
     }
+
     
     func configureUIElements(with user: User) {
         let repoItemVC = GHFRepoItemVC(user: user)
@@ -110,7 +114,7 @@ class UserInfoVC: GHFDataLoadingVC {
 extension UserInfoVC: UserInfoVCDelegate {
     func didTapGitHubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else {
-            presentGHFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid", buttonTitle: "Ok")
+            presentGFAlert(title: "Invalid URL", message: "The url attached to this user is invalid", buttonTitle: "Ok")
             return
         }
         presentSafariVC(with: url)
@@ -118,7 +122,7 @@ extension UserInfoVC: UserInfoVCDelegate {
     
     func didTapGetFollowers(for user: User) {
             guard user.followers != 0 else {
-                presentGHFAlertOnMainThread(title: "No followers", message: "THis user has no followers. What a shame 😔.", buttonTitle: "Sadge")
+                presentGFAlert(title: "No followers", message: "THis user has no followers. What a shame 😔.", buttonTitle: "Sadge")
                 return
             }
            

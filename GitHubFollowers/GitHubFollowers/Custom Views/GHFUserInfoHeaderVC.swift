@@ -35,7 +35,7 @@ class GHFUserInfoHeaderVC: UIViewController {
     }
     
     func configureUIElements() {
-        fetchAvatarImage()
+        avatarImageView.getImage(fromURL: user.avatarUrl)
         usernameLabel.text = user.login
         nameLabel.text = user.name ?? ""
         locationLabel.text = user.location ?? "No Location"
@@ -46,23 +46,8 @@ class GHFUserInfoHeaderVC: UIViewController {
         locationImageView.tintColor = .secondaryLabel
     }
     
-    func fetchAvatarImage() {
-        NetworkController.shared.fetchAvatarImage(from: user.avatarUrl) { [weak self] image in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.avatarImageView.image = image
-            }
-        }
-    }
-    
     func addSubviews() {
-        view.addSubview(avatarImageView)
-        view.addSubview(usernameLabel)
-        view.addSubview(nameLabel)
-        view.addSubview(locationImageView)
-        view.addSubview(locationLabel)
-        view.addSubview(bioLabel)
-        
+        view.addSubviews(avatarImageView,usernameLabel,nameLabel,locationLabel,locationImageView,bioLabel)
     }
     
     func layOutUI() {

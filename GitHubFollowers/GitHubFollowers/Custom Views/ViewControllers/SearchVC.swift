@@ -12,7 +12,7 @@ class SearchViewController: UIViewController {
     // MARK: - Properties
     let logoImageView = UIImageView()
     let usernameTextField = GHFTextField()
-    let callToActionButton = GHFButton(backgroundColor: .systemGreen, title: "Get Followers")
+    let callToActionButton = GHFButton(color: .systemGreen, title: "Get Followers", systemImageName: "person.3")
     var logoImageViewTopConstraint: NSLayoutConstraint!
     
     var isUsernameEntered: Bool {
@@ -34,7 +34,7 @@ class SearchViewController: UIViewController {
     
     @objc func pushFollowerListVC() {
         guard isUsernameEntered else {
-            presentGHFAlertOnMainThread(title: "Empty Username", message: "Please Enter a username we need to know who to look for 😃 ", buttonTitle: "Ok")
+            presentGFAlert(title: "Empty Username", message: "Please Enter a username we need to know who to look for 😃 ", buttonTitle: "Ok")
             return
         }
         
