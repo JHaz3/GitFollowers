@@ -14,6 +14,7 @@ protocol UserInfoVCDelegate: AnyObject {
 
 class UserInfoVC: GHFDataLoadingVC {
     
+    // MARK: - Properties
     let headerView = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()

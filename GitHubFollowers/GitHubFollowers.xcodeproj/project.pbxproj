@@ -224,8 +224,8 @@
 		EB74B5E12710F2950005CC35 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EB8761572714D7680048CBE6 /* GHFDataLoadingVC.swift */,
 				EB74B5BB270F94760005CC35 /* SearchVC.swift */,
+				EB8761572714D7680048CBE6 /* GHFDataLoadingVC.swift */,
 				EB74B5C4270FAEB20005CC35 /* FollowerListVC.swift */,
 				EB74B5BD270F94F80005CC35 /* FavoriteListVC.swift */,
 				EB74B5E627120A440005CC35 /* UserInfoVC.swift */,

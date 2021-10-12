@@ -9,6 +9,7 @@ import UIKit
 
 class GHFItemInfoVC: UIViewController {
 
+    // MARK: - Properties
     let stackView = UIStackView()
     let itemInfoViewOne = GHFItemInfoView()
     let itemInfoViewTwo = GHFItemInfoView()

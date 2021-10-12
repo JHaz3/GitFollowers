@@ -9,6 +9,7 @@ import UIKit
 
 class FavoriteListViewController: GHFDataLoadingVC {
     
+    // MARK: - Properties
     let tableView = UITableView()
     var favorites: [Follower] = []
     
@@ -61,7 +62,7 @@ class FavoriteListViewController: GHFDataLoadingVC {
             }
         }
     }
-}
+}// End of Class
 
 
 extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate {
